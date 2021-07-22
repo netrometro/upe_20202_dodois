@@ -1,4 +1,4 @@
-package com.example;
+package br.upe.pweb.dodois;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
