@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch DodoisApplication",
+            "request": "launch",
+            "mainClass": "br.upe.pweb.dodois.DodoisApplication",
+            "projectName": "upe_20202_dodois",
+            "env": {
+                "JDBC_DATABASE_URL": "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres&ssl=false"
+            }
+        }
+    ]
+}
