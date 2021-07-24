@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Tracker de Dodóis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body class="text-light bg-primary">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <h3 class="text-center mt-3">Cadastrar novo usuário</h3>
+                <form>
+                    <div class="form-group">
+                        <label>Nome:</label>
+                        <input type="text" id="nome" class="form-control" placeholder="Fulano de Tal">
+                    </div>
+                    <div class="form-group">
+                        <label>Sexo:</label>
+                        <select class="form-control" id="sexo">
+                            <option value="MASUCLINO">Masculino</option>
+                            <option value="FEMININO">Feminino</option>
+                            <option value="OUTROS">Outros</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Data de nascimento:</label>
+                        <input type="date" id="dataNasc" class="form-control"
+                            placeholder="Digite uma senha forte">
+                    </div>
+                    <div class="form-group">
+                        <label>Peso:</label>
+                        <input type="number" id="peso" class="form-control" placeholder="70.5">
+                    </div>
+                    <div class="form-group">
+                        <label>Altura em centrímetros:</label>
+                        <input type="number" id="altura" class="form-control" placeholder="180">
+                    </div>
+                    <div class="form-group">
+                        <label>Parentesco</label>
+                        <select class="form-control" id="parentesco">
+                            <option value="FILHA">Filha</option>
+                            <option value="FILHO">Filho</option>
+                            <option value="PAI">Pai</option>
+                            <option value="MÃE">Mãe</option>
+                            <option value="AVÓ">Avó</option>
+                            <option value="AVÔ">Avô</option>
+                            <option value="TIO">Tio</option>
+                            <option value="TIA">Tia</option>
+                            <option value="FAMILIAR">Familiar</option>
+                            <option value="CONHECIDO">Conhecido</option>
+                            <option value="VIZINHO">Vizinho</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" id="email" class="form-control" placeholder="fulano@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input type="password" id="senha" class="form-control"
+                            placeholder="Digite uma senha forte">
+                    </div>
+                    <div class="col text-center">
+                        <button class="btn btn-light" type="button" onclick="onCadastrarUsuario()">Criar novo usuário</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+         function pegarUsuario(){
+            let usuario = {};
+            usuario.nome = document.getElementById("nome").value;
+            usuario.sexo = document.getElementById("sexo").value;
+            usuario.email = document.getElementById("email").value;
+            usuario.senha = document.getElementById("senha").value;
+            usuario.dataNasc = new Date(document.getElementById("dataNasc").value);
+            usuario.parentesco = document.getElementById("parentesco").value;
+            usuario.peso = document.getElementById("peso").value;
+            usuario.altura = document.getElementById("altura").value;
+            return usuario;
+        }
+
+        function onCadastrarUsuario(){
+            let usuario = pegarUsuario();
+            axios.post('http://localhost:5000/api/usuario', JSON.stringify(usuario), {headers: {'Content-Type': 'application/json'}}).then((response)=> {
+                alert("Usuário cadastrado com sucesso.");
+            }).catch((error)=> {
+                console.log(response);
+            });   
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

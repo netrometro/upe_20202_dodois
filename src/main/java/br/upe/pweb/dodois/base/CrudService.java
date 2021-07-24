@@ -3,9 +3,9 @@ package br.upe.pweb.dodois.base;
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
-public interface CrudService<T extends Entidade, ID> {
+public interface CrudService<T extends Entidade, Long> {
 
-  <Dao extends CrudRepository<T, ID>> Dao getDao();
+  <Dao extends CrudRepository<T, Long>> Dao getDao();
 
   default T incluir(T entidade) {
     final T salva = getDao().save(entidade);
@@ -17,7 +17,7 @@ public interface CrudService<T extends Entidade, ID> {
     return salva;
   }
 
-  default void excluir(ID id) {
+  default void excluir(Long id) {
     getDao().deleteById(id);
   }
 
@@ -25,7 +25,7 @@ public interface CrudService<T extends Entidade, ID> {
     return getDao().findAll();
   }
 
-  default Optional<T> procurar(ID id) {
+  default Optional<T> procurar(Long id) {
     return getDao().findById(id);
   }
 }

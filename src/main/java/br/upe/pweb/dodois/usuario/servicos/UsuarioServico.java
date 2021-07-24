@@ -1,15 +1,13 @@
-package br.upe.pweb.dodois.usuarios.servicos;
+package br.upe.pweb.dodois.usuario.servicos;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.upe.pweb.dodois.usuarios.dao.IUsuarioDao;
+import br.upe.pweb.dodois.usuario.dao.IUsuarioDao;
 
 @Service
 public class UsuarioServico implements IUsuarioServico {
-
-	@Autowired
-	private IUsuarioDao dao;
+	@Autowired private IUsuarioDao dao;
 
 	@SuppressWarnings("unchecked")
 	@Override

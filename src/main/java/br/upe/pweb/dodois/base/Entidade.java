@@ -14,16 +14,11 @@ import lombok.Setter;
 
 @MappedSuperclass
 public abstract class Entidade implements Serializable{
-	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
-	@Getter
+	@Column(name = "id") @Id @Getter 
 	private Long id;
-
-	@Getter
-	@Setter
+	@Getter @Setter 
 	private LocalDateTime dataInclusao;
-	@Getter
-	@Setter
+	@Getter @Setter 
 	private LocalDateTime dataUltimaAlteracao;
 }
