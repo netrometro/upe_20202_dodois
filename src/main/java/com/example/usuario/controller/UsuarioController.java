@@ -1,4 +1,4 @@
-package br.upe.pweb.dodois.usuario.controller;
+package com.example.usuario.controller;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.upe.pweb.dodois.usuario.model.Usuario;
-import br.upe.pweb.dodois.usuario.servicos.IUsuarioServico;
+import com.example.usuario.model.Usuario;
+import com.example.usuario.servicos.IUsuarioServico;
 
 @RestController
 @RequestMapping("/api")

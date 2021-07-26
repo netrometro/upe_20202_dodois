@@ -1,12 +1,10 @@
-package br.upe.pweb.dodois.usuario.model;
+package com.example.usuario.model;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 
-import br.upe.pweb.dodois.base.Entidade;
+import com.example.base.Entidade;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

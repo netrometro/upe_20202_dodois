@@ -1,4 +1,4 @@
-package br.upe.pweb.dodois.base;
+package com.example.base;
 
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
