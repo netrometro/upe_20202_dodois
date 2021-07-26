@@ -18,13 +18,18 @@
     }
 </style>
 
-<body class="text-light bg-primary">
+<body class="text-light bg-info">
     <div id="app">
+        <ul class="nav text-info bg-light">
+            <li class="nav-item">
+              <h3 class="nav-link" href="/">Tracker de Dodóis</h3>
+            </li>
+          </ul>
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-sm-8">
-                    <label>Selecione uma opção:</label>
+                <div class="col-sm-8 mt-3">
                     <select class="form-control" v-model="opcao" @change="onSelecionarOpcao()">
+                        <option value="criar">Selecione uma opção</option>
                         <option value="criar">Criar</option>
                         <option value="listar">Listar</option>
                     </select>
@@ -151,8 +156,9 @@
                     </div>
                     <div v-if="opcao == 'listar'">
                         <div class="container overflow-hidden">
-                            <div class="row" v-for="usuario in usuarios">
-                                <div class="col-sm-6">
+                            <h3 class="text-center mt-3">Lista de usuários</h3>
+                            <div class="row">
+                                <div class="col" v-for="usuario in usuarios">
                                     <div class="card m-2" style="max-width: 25rem;">
                                         <div class="card-body">
                                             <h3 class="card-title text-primary text-center">{{usuario.nome}}</h3>
@@ -168,11 +174,13 @@
                                                     class="text-card-color">{{usuario.peso}}</label></label></br>
                                             <label class="text-primary"><Strong>Parentesco: </Strong><label
                                                     class="text-card-color">{{usuario.parentesco}}</label></label></br>
-                                            <div v-on:click="onDeletarUsuario(usuario.nome, usuario.id)">
-                                                <a class="btn btn-danger">Apagar usuário</a>
-                                            </div>
-                                            <div v-on:click="onPreAlterarUsuario(usuario)">
-                                                <a class="btn btn-warning">Atualizar usuário</a>
+                                            <div class="row col">
+                                                <div class="m-2" v-on:click="onDeletarUsuario(usuario.nome, usuario.id)">
+                                                    <a class="btn btn-danger">Apagar usuário</a>
+                                                </div>
+                                                <div class="m-2" v-on:click="onPreAlterarUsuario(usuario)">
+                                                    <a class="btn btn-warning">Atualizar usuário</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
