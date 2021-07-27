@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.upe.pweb.dodois.usuario.model.Usuario;
+import br.upe.pweb.dodois.usuario.model.Credenciado;
 import br.upe.pweb.dodois.usuario.servicos.IUsuarioServico;
 
 @RestController
@@ -26,18 +26,18 @@ public class UsuarioController {
 	private IUsuarioServico servico;
 
 	@GetMapping("/usuarios")
-	public List<Usuario> listar() {
-		return (List<Usuario>) this.servico.listar();
+	public List<Credenciado> listar() {
+		return (List<Credenciado>) this.servico.listar();
 	}
 
 	@CrossOrigin(origins = "*")
 	@PostMapping("/usuario")
-	public Usuario incluir(@Valid @RequestBody Usuario usuario) {
+	public Credenciado incluir(@Valid @RequestBody Credenciado usuario) {
 		return this.servico.incluir(usuario);
 	}
 
 	@PutMapping("/usuario/{id}")
-	public void atualizar(@Valid @RequestBody Usuario usuario){
+	public void atualizar(@Valid @RequestBody Credenciado usuario){
 		this.servico.alterar(usuario);
 	}
 
