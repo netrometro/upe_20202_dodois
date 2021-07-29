@@ -2,6 +2,7 @@ package br.upe.pweb.dodois.usuario.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -25,12 +26,12 @@ public class Usuario extends Entidade {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_usuario") @Id @Getter
 	private Long id;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_grupo")
 	private Grupo grupo;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_credenciado")
-    private Long idCredenciado;
+    private Credenciado credenciado;
     @Column(nullable = false)
 	private String nome;
 	@Column(nullable = false)

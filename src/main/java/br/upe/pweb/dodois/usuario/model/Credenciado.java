@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
 import br.upe.pweb.dodois.base.Entidade;
@@ -23,6 +24,6 @@ public class Credenciado extends Entidade {
 	private String email;
 	@Column(nullable = false)
 	private String senha;
-	@OneToOne(mappedBy = "credenciado")
-	private Long idUsuario;
+	@OneToOne(mappedBy = "credenciado", cascade = CascadeType.ALL)
+	private Usuario usuario;
 }

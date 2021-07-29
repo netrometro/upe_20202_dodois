@@ -1,4 +1,4 @@
-package br.upe.pweb.dodois.usuario.servicos;
+package br.upe.pweb.dodois.usuario.servicos.interfaces;
 
 
 import br.upe.pweb.dodois.base.CrudService;
