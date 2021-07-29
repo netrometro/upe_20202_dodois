@@ -24,5 +24,5 @@ public class Credenciado extends Entidade {
 	@Column(nullable = false)
 	private String senha;
 	@OneToOne(mappedBy = "credenciado")
-	private Pessoa pessoa;
+	private Long idUsuario;
 }

@@ -25,5 +25,5 @@ public class Grupo extends Entidade{
     private String nome;
     @OneToMany(mappedBy="grupo")
     @Column(nullable = false)
-    private List<Pessoa> pessoas;
+    private List<Usuario> usuarios;
 }

@@ -16,33 +16,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.upe.pweb.dodois.usuario.model.Credenciado;
+import br.upe.pweb.dodois.usuario.model.Usuario;
+import br.upe.pweb.dodois.usuario.servicos.ICredenciadoServico;
 import br.upe.pweb.dodois.usuario.servicos.IUsuarioServico;
 
 @RestController
 @RequestMapping("/api")
 public class UsuarioController {
 
-	@Autowired
-	private IUsuarioServico servico;
+	@Autowired private IUsuarioServico usuarioServico;
+	@Autowired private ICredenciadoServico credenciadoServico;
 
-	@GetMapping("/usuarios")
-	public List<Credenciado> listar() {
-		return (List<Credenciado>) this.servico.listar();
-	}
-
-	@CrossOrigin(origins = "*")
 	@PostMapping("/usuario")
-	public Credenciado incluir(@Valid @RequestBody Credenciado usuario) {
-		return this.servico.incluir(usuario);
+	public Credenciado cadastrar(@Valid @RequestBody Credenciado credenciado) {
+		return this.credenciadoServico.incluir(credenciado);
 	}
 
-	@PutMapping("/usuario/{id}")
-	public void atualizar(@Valid @RequestBody Credenciado usuario){
-		this.servico.alterar(usuario);
+	@PostMapping("/completardados")
+	public Usuario completardados(@Valid @RequestBody Usuario usuario) {
+		return this.usuarioServico.incluir(usuario);
 	}
 
 	@DeleteMapping("/usuario/{id}")
-	public void excluir(@PathVariable Long id) {
-		this.servico.excluir(id);
+	public String excluir(@Valid @PathVariable Long id) {
+		this.usuarioServico.excluir(id);
+		return "Usuário deletado com sucesso";
 	}
+
+	/*
+	@CrossOrigin(origins = "*")
+	@PostMapping("/login")
+	public Credenciado login(@Valid @RequestBody Credenciado credenciado) {
+		return this.servico.incluir(usuario);
+	}
+
+	@PutMapping("/preencherdados/{id}")
+	public void preencherdados(@Valid @RequestBody Usuario usuario){
+		this.servico.alterar(usuario);
+	}*/
+
 }

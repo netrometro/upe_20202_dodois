@@ -21,16 +21,16 @@ import lombok.Getter;
 @Data
 @Entity
 @EqualsAndHashCode(callSuper = false)
-public class Pessoa extends Entidade {
+public class Usuario extends Entidade {
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id_pessoa") @Id @Getter
+	@Column(name = "id_usuario") @Id @Getter
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name = "id_grupo")
 	private Grupo grupo;
 	@OneToOne
 	@JoinColumn(name = "id_credenciado")
-    private Credenciado credenciado;
+    private Long idCredenciado;
     @Column(nullable = false)
 	private String nome;
 	@Column(nullable = false)
