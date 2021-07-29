@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.upe.pweb.dodois.base.Entidade;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,5 +26,6 @@ public class Grupo extends Entidade{
 	private Long id;
     @OneToMany(mappedBy="grupo", cascade = CascadeType.ALL)
     @Column(nullable = false)
+    @JsonIgnore
     private List<Usuario> usuarios;
 }

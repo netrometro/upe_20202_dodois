@@ -3,6 +3,7 @@ package br.upe.pweb.dodois.usuario.controller;
 import javax.validation.Valid;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,16 +35,17 @@ public class UsuarioController {
 		usuario.setCredenciado(credenciadoExistente);
 		Usuario usuarioCriado = usuarioServico.incluir(usuario);
 
-		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+		List<Usuario> usuarios = new ArrayList<Usuario>();
 		usuarios.add(usuarioCriado);
 
 		Grupo grupoInicial = new Grupo();
 
-		grupoInicial.setUsuarios(usuarios);
+		grupoInicial.setUsuarios(Arrays.asList(usuarios).get(0));
+
 		Grupo grupoCriado = grupoServico.incluir(grupoInicial);
 
 		usuarioCriado.setGrupo(grupoCriado);
-		usuarioServico.alterar(usuarioCriado);
+		usuarioServico.alterarGrupo(grupoCriado, usuarioCriado);
 		return this.usuarioServico.procurar(usuarioCriado.getId());
 	}
 
