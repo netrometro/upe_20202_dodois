@@ -28,6 +28,11 @@ public class UsuarioController {
 	@Autowired private ICredenciadoServico credenciadoServico;
 	@Autowired private IGrupoServico grupoServico;
 
+	@PostMapping("/cadastro/passo1")
+	public Credenciado cadastrarPasso1(@Valid @RequestBody Credenciado credenciado) {
+		return this.credenciadoServico.incluir(credenciado);
+	}
+
 	@PostMapping("/cadastro/passo2/{id}")
 	public Usuario cadastrarPasso2(@Valid @PathVariable Long id, @Valid @RequestBody Usuario usuario) {
 		Credenciado credenciadoExistente = this.credenciadoServico.procurar(id); 
@@ -45,7 +50,7 @@ public class UsuarioController {
 		Grupo grupoCriado = grupoServico.incluir(grupoInicial);
 
 		usuarioCriado.setGrupo(grupoCriado);
-		usuarioServico.alterarGrupo(grupoCriado, usuarioCriado);
+		usuarioServico.definirGrupo(grupoCriado, usuarioCriado);
 		return this.usuarioServico.procurar(usuarioCriado.getId());
 	}
 

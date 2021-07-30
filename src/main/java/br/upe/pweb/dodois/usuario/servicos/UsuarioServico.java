@@ -27,7 +27,7 @@ public class UsuarioServico implements IUsuarioServico {
     	return usuarioCriado;
 	}
 
-	public Usuario alterarGrupo(Grupo grupo, Usuario usuarioExistente){
+	public Usuario definirGrupo(Grupo grupo, Usuario usuarioExistente){
 		usuarioExistente.setGrupo(grupo); 
 		usuarioExistente.setDataUltimaAlteracao(LocalDateTime.now());
 		return getDao().save(usuarioExistente);

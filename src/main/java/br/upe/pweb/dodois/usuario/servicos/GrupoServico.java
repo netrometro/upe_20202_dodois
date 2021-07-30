@@ -18,11 +18,4 @@ public class GrupoServico implements IGrupoServico{
 	public IGrupoDao getDao() {
 		return this.dao;
 	}
-
-    @Override
-	public Grupo incluir(Grupo grupo){
-		grupo.setDataInclusao(LocalDateTime.now());
-    	Grupo grupoCriado = getDao().save(grupo);
-    	return grupoCriado;
-	}  
 }

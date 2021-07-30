@@ -5,5 +5,5 @@ import br.upe.pweb.dodois.usuario.model.Grupo;
 import br.upe.pweb.dodois.usuario.model.Usuario;
 
 public interface IUsuarioServico extends CrudService<Usuario, Long> { 
-    Usuario alterarGrupo(Grupo grupo, Usuario usuario);
+    Usuario definirGrupo(Grupo grupo, Usuario usuario);
 }
