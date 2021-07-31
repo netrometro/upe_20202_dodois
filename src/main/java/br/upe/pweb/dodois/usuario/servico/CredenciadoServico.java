@@ -1,4 +1,4 @@
-package br.upe.pweb.dodois.usuario.servicos;
+package br.upe.pweb.dodois.usuario.servico;
 
 import java.time.LocalDateTime;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.upe.pweb.dodois.usuario.dao.ICredenciadoDao;
 import br.upe.pweb.dodois.usuario.model.Credenciado;
-import br.upe.pweb.dodois.usuario.servicos.interfaces.ICredenciadoServico;
+import br.upe.pweb.dodois.usuario.servico.interfaces.ICredenciadoServico;
 
 @Service
 public class CredenciadoServico implements ICredenciadoServico {

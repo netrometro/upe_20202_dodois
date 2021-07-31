@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import br.upe.pweb.dodois.usuario.model.Credenciado;
 import br.upe.pweb.dodois.usuario.model.Grupo;
 import br.upe.pweb.dodois.usuario.model.Usuario;
-import br.upe.pweb.dodois.usuario.servicos.interfaces.ICredenciadoServico;
-import br.upe.pweb.dodois.usuario.servicos.interfaces.IGrupoServico;
-import br.upe.pweb.dodois.usuario.servicos.interfaces.IUsuarioServico;
+import br.upe.pweb.dodois.usuario.servico.interfaces.ICredenciadoServico;
+import br.upe.pweb.dodois.usuario.servico.interfaces.IGrupoServico;
+import br.upe.pweb.dodois.usuario.servico.interfaces.IUsuarioServico;
 
 @RestController
 @RequestMapping("/api")

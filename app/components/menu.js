@@ -6,6 +6,7 @@ export default class Menu extends Component {
         return (
             <div>
                 <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <img src="/bootstrap-logo.svg" alt="" width="30" height="24"/>
                     <a class="navbar-brand" href="#">Tracker de Dodois</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
