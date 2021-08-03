@@ -1,10 +1,11 @@
-package br.upe.pweb.dodois.usuario.servico;
+package br.upe.pweb.dodois.evento.servico;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.upe.pweb.dodois.usuario.dao.IEventoDao;
-import br.upe.pweb.dodois.usuario.servico.interfaces.IEventoServico;
+import br.upe.pweb.dodois.evento.dao.IEventoDao;
+import br.upe.pweb.dodois.evento.servico.interfaces.IEventoServico;
+
 
 @Service
 public class EventoServico implements IEventoServico{
