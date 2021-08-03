@@ -26,10 +26,5 @@ public class LembreteServico implements ILembreteServico {
 		lembrete.setDataUltimaAlteracao(LocalDateTime.now());
 		getDao().save(lembrete);
 		return lembrete;
-
-
 	}
-
-    
-
 }
