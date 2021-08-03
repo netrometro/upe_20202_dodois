@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import br.upe.pweb.dodois.evento.model.Evento;
 
-public interface IEvento extends CrudRepository<Evento, Long>{
+public interface IEventoDao extends CrudRepository<Evento, Long>{
     
 }
