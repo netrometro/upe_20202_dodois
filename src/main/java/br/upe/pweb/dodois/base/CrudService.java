@@ -10,13 +10,13 @@ public interface CrudService<T extends Entidade, Long> {
 
   default T incluir(T entidade) {
     entidade.setDataInclusao(LocalDateTime.now());
-    final T salva = getDao();
+    final T salva = getDao().save(entidade);
     return salva;
   }
 
   default T alterar(T entidade) {
     entidade.setDataUltimaAlteracao(LocalDateTime.now());
-    final T salva = getDao();
+    final T salva = getDao().save(entidade);
     return salva;
   }
 

@@ -1,6 +1,6 @@
 package br.upe.pweb.dodois.evento.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,10 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import br.upe.pweb.dodois.base.Entidade;
 import lombok.Data;
@@ -30,9 +27,7 @@ public class Lembrete extends Entidade{
 	private Long id;
 	
 	@Column(nullable = false) @Getter @Setter
-	@JsonFormat(pattern = "dd/MM/yyyy") 
-	@DateTimeFormat(pattern = "dd/MM/yyyy") 
-	private LocalDate data;
+	private Date data;
 	
 	@Column(nullable = false) @Getter @Setter 
 	private String descricao;
