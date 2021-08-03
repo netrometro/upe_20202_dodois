@@ -20,13 +20,6 @@ public class UsuarioServico implements IUsuarioServico {
 		return this.dao;
 	}
 
-	@Override
-	public Usuario incluir(Usuario usuario){
-		usuario.setDataInclusao(LocalDateTime.now());
-    	Usuario usuarioCriado = getDao().save(usuario);
-    	return usuarioCriado;
-	}
-
 	public Usuario definirGrupo(Grupo grupo, Usuario usuarioExistente){
 		usuarioExistente.setGrupo(grupo); 
 		usuarioExistente.setDataUltimaAlteracao(LocalDateTime.now());

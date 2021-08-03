@@ -20,13 +20,6 @@ public class CredenciadoServico implements ICredenciadoServico {
 	}
 
 	@Override
-	public Credenciado incluir(Credenciado credenciado){
-		credenciado.setDataInclusao(LocalDateTime.now());
-    	Credenciado credenciadoExistente = getDao().save(credenciado);
-    	return credenciadoExistente;
-	}
-
-	@Override
 	public Credenciado alterar(Credenciado credenciado){
 		Credenciado credenciadoExistente = getDao().findById(credenciado.getId()).get(); 
 		credenciadoExistente.setEmail(credenciado.getEmail()); 

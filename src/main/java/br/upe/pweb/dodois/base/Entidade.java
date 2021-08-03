@@ -15,8 +15,12 @@ import lombok.Setter;
 @EqualsAndHashCode(callSuper = false)
 @MappedSuperclass
 public abstract class Entidade implements Serializable{
-	@Column(nullable = false) @Getter @Setter 
+	@Column(nullable = false) 
+	@Getter 
+	@Setter 
 	private LocalDateTime dataInclusao;
-	@Getter @Setter 
+	
+	@Getter 
+	@Setter 
 	private LocalDateTime dataUltimaAlteracao;
 }

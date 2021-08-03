@@ -23,10 +23,13 @@ public class Credenciado extends Entidade {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_credenciado") @Id @Getter 
 	private Long id;
+	
 	@Column(nullable = false)
 	private String email;
+	
 	@Column(nullable = false)
 	private String senha;
+	
 	@OneToOne(mappedBy = "credenciado", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private Usuario usuario;

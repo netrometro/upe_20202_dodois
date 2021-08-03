@@ -24,6 +24,7 @@ public class Grupo extends Entidade{
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_grupo") @Id @Getter 
 	private Long id;
+    
     @OneToMany(mappedBy="grupo", cascade = CascadeType.ALL)
     @Column(nullable = false)
     @JsonIgnore
