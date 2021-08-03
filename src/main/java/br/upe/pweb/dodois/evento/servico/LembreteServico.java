@@ -4,16 +4,16 @@ package br.upe.pweb.dodois.evento.servico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.upe.pweb.dodois.evento.dao.ILembreteDao;
 import br.upe.pweb.dodois.evento.servico.interfaces.ILembreteServico;
-import br.upe.pweb.dodois.usuario.dao.ICredenciadoDao;
 
 @Service
 public class LembreteServico implements ILembreteServico {
-	@Autowired private ICredenciadoDao dao;
+	@Autowired private ILembreteDao dao;
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public ICredenciadoDao getDao() {
+	public ILembreteDao getDao() {
 		return this.dao;
 	}
 
