@@ -28,6 +28,11 @@ public class UsuarioController {
 	@Autowired private ICredenciadoServico credenciadoServico;
 	@Autowired private IGrupoServico grupoServico;
 
+	@PostMapping("/login")
+	public Credenciado login(@Valid @RequestBody Credenciado credenciado) {
+		return this.credenciadoServico.incluir(credenciado);
+	}
+
 	@PostMapping("/cadastro/passo1")
 	public Credenciado cadastrarPasso1(@Valid @RequestBody Credenciado credenciado) {
 		return this.credenciadoServico.incluir(credenciado);
