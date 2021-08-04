@@ -1,5 +1,6 @@
 package br.upe.pweb.dodois.usuario.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.upe.pweb.dodois.base.Entidade;
@@ -44,6 +46,7 @@ public class Usuario extends Entidade {
 	private String nome;
 	
 	@Column(nullable = false)
+	@JsonFormat(pattern = "dd/MM/YYYY")
 	private Date dataNasc;
 	
 	@Column(nullable = false)
@@ -56,7 +59,6 @@ public class Usuario extends Entidade {
 	@Column(nullable = false)
 	private Sexo sexo;
 	
-	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Parentesco parentesco;
 	

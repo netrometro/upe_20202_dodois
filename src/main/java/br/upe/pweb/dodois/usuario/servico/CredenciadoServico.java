@@ -19,13 +19,8 @@ public class CredenciadoServico implements ICredenciadoServico {
 		return this.dao;
 	}
 
-	@Override
-	public Credenciado alterar(Credenciado credenciado){
-		Credenciado credenciadoExistente = getDao().findById(credenciado.getId()).get(); 
-		credenciadoExistente.setEmail(credenciado.getEmail()); 
-		credenciadoExistente.setDataUltimaAlteracao(LocalDateTime.now());
-		getDao().save(credenciadoExistente);
-		return credenciadoExistente;
+	public Boolean existe(Credenciado credenciado){
+		return getDao().existsByEmailAndSenha(credenciado.getEmail(), credenciado.getSenha());
 	}
 
 }

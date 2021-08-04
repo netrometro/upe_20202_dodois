@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.upe.pweb.dodois.usuario.model.Credenciado;
 import br.upe.pweb.dodois.usuario.model.Grupo;
+import br.upe.pweb.dodois.usuario.model.Parentesco;
 import br.upe.pweb.dodois.usuario.model.Usuario;
 import br.upe.pweb.dodois.usuario.servico.interfaces.ICredenciadoServico;
 import br.upe.pweb.dodois.usuario.servico.interfaces.IGrupoServico;
@@ -28,11 +29,6 @@ public class UsuarioController {
 	@Autowired private ICredenciadoServico credenciadoServico;
 	@Autowired private IGrupoServico grupoServico;
 
-	@PostMapping("/login")
-	public Credenciado login(@Valid @RequestBody Credenciado credenciado) {
-		return this.credenciadoServico.incluir(credenciado);
-	}
-
 	@PostMapping("/cadastro/passo1")
 	public Credenciado cadastrarPasso1(@Valid @RequestBody Credenciado credenciado) {
 		return this.credenciadoServico.incluir(credenciado);
@@ -43,6 +39,7 @@ public class UsuarioController {
 		Credenciado credenciadoExistente = this.credenciadoServico.procurar(id); 
 
 		usuario.setCredenciado(credenciadoExistente);
+		usuario.setParentesco(Parentesco.NAOPOSSUI);
 		Usuario usuarioCriado = usuarioServico.incluir(usuario);
 
 		List<Usuario> usuarios = new ArrayList<Usuario>();

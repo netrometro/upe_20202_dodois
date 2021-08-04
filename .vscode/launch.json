@@ -7,7 +7,7 @@
             "mainClass": "br.upe.pweb.dodois.DodoisApplication",
             "projectName": "upe_20202_dodois",
             "env": {
-                "JDBC_DATABASE_URL": "jdbc:postgresql://localhost:5432/dodois?user=postgres&password=edy123"
+                "JDBC_DATABASE_URL": "jdbc:postgresql://localhost:5432/dodois?user=postgres&password=postgres"
             }
         }
     ]
