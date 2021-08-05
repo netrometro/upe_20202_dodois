@@ -6,8 +6,8 @@ import br.upe.pweb.dodois.usuario.model.Credenciado;
 
 
 public interface ICredenciadoServico extends CrudService<Credenciado, Long> {
-    Boolean emailExiste(String email);
-    Boolean existe(Long id);
-    Boolean credenciaisExistem(Credenciado credenciado);
+    boolean emailExiste(String email);
+    boolean existe(Long id);
+    boolean credenciaisExistem(Credenciado credenciado);
     Credenciado procurarPorEmail(String email);
  }

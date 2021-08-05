@@ -34,18 +34,16 @@ public class AuthController {
 	@Autowired private IGrupoServico grupoServico;
     @Autowired private IUsuarioServico usuarioServico;
 
-
 	@PostMapping("/cadastro/passo1")
 	public ResponseEntity<JsonObject> cadastrarPasso1(@Valid @RequestBody Credenciado credenciado) {
         JsonObject json = new JsonObject();
         json.addProperty("timestamp", LocalDateTime.now().toString());
 
-        Boolean credenciadoExiste = credenciadoServico.emailExiste(credenciado.getEmail());
+        boolean credenciadoExiste = credenciadoServico.emailExiste(credenciado.getEmail());
         if (credenciadoExiste){
             json.addProperty("msg", "Usuário já existe.");
             return ResponseEntity.status(HttpStatus.OK).body(json);
         }
-        this.credenciadoServico.incluir(credenciado);
         json.addProperty("msg", "Usuário cadastrado com sucesso.");
         return ResponseEntity.status(HttpStatus.OK).body(json);
 	}
@@ -55,8 +53,8 @@ public class AuthController {
         JsonObject json = new JsonObject();
         json.addProperty("timestamp", LocalDateTime.now().toString());
 
-        Boolean credenciadoExiste = credenciadoServico.existe(idCredenciado);
-		if (credenciadoExiste){
+        Usuario usuarioExiste = credenciadoServico.procurar(idCredenciado).getUsuario();
+		if (usuarioExiste != null){
             json.addProperty("msg", "Usuário já existe.");
             return ResponseEntity.status(HttpStatus.OK).body(json);
         }
@@ -75,12 +73,12 @@ public class AuthController {
         JsonObject json = new JsonObject();
         json.addProperty("timestamp", LocalDateTime.now().toString());
 
-        Boolean credenciadoExiste = credenciadoServico.emailExiste(credenciado.getEmail());
+        boolean credenciadoExiste = credenciadoServico.emailExiste(credenciado.getEmail());
 		if (!credenciadoExiste){
             json.addProperty("msg", "Usuário não existe.");
             return ResponseEntity.status(HttpStatus.OK).body(json);
         }
-        Boolean credenciaisValidas = credenciadoServico.credenciaisExistem(credenciado);
+        boolean credenciaisValidas = credenciadoServico.credenciaisExistem(credenciado);
         if (!credenciaisValidas){
             json.addProperty("msg", "Credenciais inválidas.");
             return ResponseEntity.status(HttpStatus.OK).body(json);

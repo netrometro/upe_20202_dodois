@@ -1,7 +1,5 @@
 package br.upe.pweb.dodois.usuario.model;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.upe.pweb.dodois.base.Entidade;
@@ -35,6 +34,7 @@ public class Usuario extends Entidade {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_grupo")
+	@JsonBackReference
 	private Grupo grupo;
 	
 	@OneToOne(cascade = CascadeType.ALL)
@@ -45,7 +45,7 @@ public class Usuario extends Entidade {
 	private String nome;
 	
 	@Column(nullable = false)
-	private Date dataNasc;
+	private String dataNasc;
 	
 	@Column(nullable = false)
 	private Double peso;

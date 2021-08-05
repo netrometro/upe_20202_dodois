@@ -17,15 +17,15 @@ public class CredenciadoServico implements ICredenciadoServico {
 		return this.dao;
 	}
 
-	public Boolean emailExiste(String email){
+	public boolean emailExiste(String email){
 		return getDao().existsByEmail(email);
 	}
 
-	public Boolean existe(Long id){
+	public boolean existe(Long id){
 		return getDao().existsById(id);
 	}
 
-	public Boolean credenciaisExistem(Credenciado credenciado){
+	public boolean credenciaisExistem(Credenciado credenciado){
 		return getDao().existsByEmailAndSenha(credenciado.getEmail(), credenciado.getSenha());
 	}
 
