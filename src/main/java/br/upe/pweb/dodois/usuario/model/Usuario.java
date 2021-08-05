@@ -17,7 +17,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.upe.pweb.dodois.base.Entidade;
@@ -46,7 +45,6 @@ public class Usuario extends Entidade {
 	private String nome;
 	
 	@Column(nullable = false)
-	@JsonFormat(pattern = "dd/MM/YYYY")
 	private Date dataNasc;
 	
 	@Column(nullable = false)

@@ -1,7 +1,5 @@
 package br.upe.pweb.dodois.usuario.servico;
 
-import java.time.LocalDateTime;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +17,20 @@ public class CredenciadoServico implements ICredenciadoServico {
 		return this.dao;
 	}
 
-	public Boolean existe(Credenciado credenciado){
+	public Boolean emailExiste(String email){
+		return getDao().existsByEmail(email);
+	}
+
+	public Boolean existe(Long id){
+		return getDao().existsById(id);
+	}
+
+	public Boolean credenciaisExistem(Credenciado credenciado){
 		return getDao().existsByEmailAndSenha(credenciado.getEmail(), credenciado.getSenha());
+	}
+
+	public Credenciado procurarPorEmail(String email){
+		return getDao().findByEmail(email);
 	}
 
 }

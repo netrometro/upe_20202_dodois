@@ -36,29 +36,4 @@ public class EventoServico implements IEventoServico{
 		Evento evento = getDao().findById(id).get();
 		return evento.getSintomas();
 	}
-
-	public void incluirSintoma(Long eventoId, Sintoma sintoma){
-		Evento evento = getDao().findById(eventoId).get();
-		List<Sintoma> sintomas = evento.getSintomas();
-		sintomas.add(sintoma);
-		evento.setSintomas(sintomas);
-		getDao().save(evento);
-	}
-
-	public void apagarSintoma(Long eventoId, Long sintomaId) {
-		Evento evento = getDao().findById(eventoId).get();
-		sintomaServico.excluir(sintomaId);
-	}
-
-	public Sintoma atualizarDescricaoSintoma(Long eventoId, Long sintomaId, String descricao) {
-		Evento evento = getDao().findById(eventoId).get();
-		List<Sintoma> sintomas = evento.getSintomas();
-		for(Sintoma s : sintomas){
-			if (sintomaId == s.getId()){
-				return sintomaServico.alterarDescricao(sintomaId, descricao);
-			}
-		}
-		return null;
-	}
-
 }
