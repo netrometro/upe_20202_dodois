@@ -41,4 +41,20 @@ public class SintomaController {
 		List<Sintoma> sintomas = eventoServico.listarSintomas(id);
 		return new ResponseEntity<List<Sintoma>>(sintomas, HttpStatus.OK);
 	}
+
+	@DeleteMapping("/evento/{eventoId}/sintoma/{sintomaId}")
+	public ResponseEntity<JsonObject> deletarSintomaDoEvento(@PathVariable Long eventoId, @PathVariable Long sintomaId){
+		JsonObject resposta = new JsonObject();
+		this.eventoServico.apagarSintoma(eventoId, sintomaId);
+		resposta.addProperty("status", "SINTOMA_DELETADO_SUCESSO");
+		return new ResponseEntity<JsonObject>(resposta, HttpStatus.OK);
+	}
+
+	@PutMapping("/evento/{eventoId}/sintoma/{sintomaId}")
+	public ResponseEntity<JsonObject> atualizarDescricaoSintoma(@PathVariable Long eventoId, @PathVariable Long sintomaId, @RequestBody Sintoma sintoma) {
+		JsonObject resposta = new JsonObject();
+		this.atualizarDescricaoSintoma(eventoId, sintomaId, sintoma);
+		resposta.addProperty("status", "SINTOMA_ALTERADO_SUCESSO");
+		return new ResponseEntity<JsonObject>(resposta, HttpStatus.OK);
+	}
 }

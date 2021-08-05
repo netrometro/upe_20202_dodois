@@ -8,6 +8,7 @@ import br.upe.pweb.dodois.evento.model.Avaliacao;
 import br.upe.pweb.dodois.evento.model.Evento;
 import br.upe.pweb.dodois.evento.model.Sintoma;
 import br.upe.pweb.dodois.evento.servico.interfaces.IEventoServico;
+import br.upe.pweb.dodois.evento.servico.interfaces.ISintomaServico;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 @Service
 public class EventoServico implements IEventoServico{
     @Autowired private IEventoDao dao;
+	@Autowired private ISintomaServico sintomaServico;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -42,4 +44,21 @@ public class EventoServico implements IEventoServico{
 		evento.setSintomas(sintomas);
 		getDao().save(evento);
 	}
+
+	public void apagarSintoma(Long eventoId, Long sintomaId) {
+		Evento evento = getDao().findById(eventoId).get();
+		sintomaServico.excluir(sintomaId);
+	}
+
+	public Sintoma atualizarDescricaoSintoma(Long eventoId, Long sintomaId, String descricao) {
+		Evento evento = getDao().findById(eventoId).get();
+		List<Sintoma> sintomas = evento.getSintomas();
+		for(Sintoma s : sintomas){
+			if (sintomaId == s.getId()){
+				return sintomaServico.alterarDescricao(sintomaId, descricao);
+			}
+		}
+		return null;
+	}
+
 }

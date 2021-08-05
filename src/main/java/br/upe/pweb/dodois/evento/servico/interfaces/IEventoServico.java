@@ -12,4 +12,5 @@ public interface IEventoServico extends CrudService<Evento, Long> {
     public Evento alterarAvaliacao(Long id, Avaliacao avaliacao);
     public List<Sintoma> listarSintomas(Long id);
     public void incluirSintoma(Long eventoId, Sintoma sintoma);
+    public void apagarSintoma(Long eventoId, Long sintomaId);
  }
