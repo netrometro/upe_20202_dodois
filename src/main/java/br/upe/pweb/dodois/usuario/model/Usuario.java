@@ -1,6 +1,4 @@
 package br.upe.pweb.dodois.usuario.model;
-
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 

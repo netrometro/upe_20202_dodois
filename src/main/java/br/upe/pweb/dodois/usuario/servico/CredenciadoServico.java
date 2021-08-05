@@ -1,7 +1,5 @@
 package br.upe.pweb.dodois.usuario.servico;
 
-import java.time.LocalDateTime;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
