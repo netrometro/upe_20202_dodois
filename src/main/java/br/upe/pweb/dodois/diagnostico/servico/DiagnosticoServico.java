@@ -4,15 +4,17 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.upe.pweb.dodois.diagnostico.dao.IDiagnosticoDao;
 import br.upe.pweb.dodois.diagnostico.model.Diagnostico;
 import br.upe.pweb.dodois.diagnostico.model.Receita;
 import br.upe.pweb.dodois.diagnostico.servico.Interface.IDiagnosticoServico;
 
+@Service
 public class DiagnosticoServico implements IDiagnosticoServico{
-
-    @Autowired private IDiagnosticoDao dao;
+	
+	@Autowired private IDiagnosticoDao dao;
 
 	@SuppressWarnings("unchecked")
 	@Override

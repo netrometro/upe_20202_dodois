@@ -3,14 +3,16 @@ package br.upe.pweb.dodois.diagnostico.servico;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.upe.pweb.dodois.diagnostico.dao.IReceitaDao;
 import br.upe.pweb.dodois.diagnostico.model.Receita;
 import br.upe.pweb.dodois.diagnostico.servico.Interface.IReceitaServico;
 
+@Service
 public class ReceitaServico implements IReceitaServico{
-
-    @Autowired private IReceitaDao dao;
+	@Autowired
+    private IReceitaDao dao;
 
 	@SuppressWarnings("unchecked")
 	@Override

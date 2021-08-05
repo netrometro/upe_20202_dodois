@@ -21,8 +21,7 @@ import br.upe.pweb.dodois.diagnostico.servico.Interface.IDiagnosticoServico;
 @RequestMapping("/api")
 public class DiagnosticoController {
 
-	@Autowired
-	private IDiagnosticoServico servico;
+	@Autowired private IDiagnosticoServico servico;
 
 	@PostMapping("/diagnostico")
 	public Diagnostico criarDiagnostico(@RequestBody Diagnostico diagnostico) {

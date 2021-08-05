@@ -16,7 +16,7 @@ import br.upe.pweb.dodois.diagnostico.model.Receita;
 import br.upe.pweb.dodois.diagnostico.servico.Interface.IReceitaServico;
 
 public class ReceitaController {
-	@Autowired
+	
 	private IReceitaServico servico;
 
 	@PostMapping("/receita")
