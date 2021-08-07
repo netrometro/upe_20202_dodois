@@ -13,7 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import br.upe.pweb.dodois.base.Entidade;
 import br.upe.pweb.dodois.usuario.model.Usuario;
@@ -36,14 +37,14 @@ public class Evento  extends Entidade{
 	private Avaliacao avaliacao;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonBackReference
     private Usuario usuario;
 
     @OneToMany(mappedBy="evento", cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonManagedReference
     private List<Sintoma> sintomas;
 
     @OneToMany(mappedBy="evento", cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonManagedReference
     private List<Lembrete> lembretes;
 }

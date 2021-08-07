@@ -23,24 +23,4 @@ public class SintomaServico implements ISintomaServico{
 	public ISintomaDao getDao() {
 		return this.dao;
 	}
-
-	public void incluirEmEvento(Sintoma sintoma, Long eventoId){
-		Evento evento = eventoServico.getDao().findById(eventoId).get();
-		sintoma.setDataInclusao(LocalDateTime.now());
-		sintoma.setEvento(evento);
-		getDao().save(sintoma);
-	}
-
-	public Sintoma alterarDescricao(Long id, String descricao) {
-		Sintoma sintoma = getDao().findById(id).get();
-		sintoma.setDescricao(descricao);
-		sintoma.setDataUltimaAlteracao(LocalDateTime.now());
-		getDao().save(sintoma);
-		return sintoma;
-	}
-
-	public List<Sintoma> pegarSintomasEvento(Long id){
-		return getDao().findByEventoId(id);
-	}
-
 }

@@ -17,6 +17,7 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import br.upe.pweb.dodois.base.Entidade;
 import br.upe.pweb.dodois.evento.model.Evento;
@@ -61,6 +62,6 @@ public class Usuario extends Entidade {
 	private Parentesco parentesco;
 	
 	@OneToMany(mappedBy="usuario", cascade = CascadeType.ALL)
-	@JsonIgnore
+	@JsonManagedReference
 	private List<Evento> eventos;
 }
