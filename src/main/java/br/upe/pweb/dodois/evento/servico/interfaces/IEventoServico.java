@@ -5,7 +5,5 @@ import br.upe.pweb.dodois.evento.model.Avaliacao;
 import br.upe.pweb.dodois.evento.model.Evento;
 
 public interface IEventoServico extends CrudService<Evento, Long> {
-
     public Evento alterarAvaliacao(Long id, Avaliacao avaliacao);
-
  }

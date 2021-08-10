@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -31,6 +31,6 @@ public class Credenciado extends Entidade {
 	private String senha;
 	
 	@OneToOne(mappedBy = "credenciado", cascade = CascadeType.ALL)
-	@JsonIgnore
+	@JsonBackReference
 	private Usuario usuario;
 }

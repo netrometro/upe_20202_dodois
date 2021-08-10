@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import br.upe.pweb.dodois.base.Entidade;
 import lombok.Data;
@@ -33,6 +33,6 @@ public class Sintoma extends Entidade{
     private String descricao;
     
     @ManyToOne(cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonBackReference
     private Evento evento; 
 }

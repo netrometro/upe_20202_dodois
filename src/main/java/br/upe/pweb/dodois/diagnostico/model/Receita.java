@@ -1,6 +1,6 @@
-package br.upe.pweb.dodois.usuario.model;
+package br.upe.pweb.dodois.diagnostico.model;
 
-import java.util.List;
+import br.upe.pweb.dodois.base.Entidade;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -8,11 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import br.upe.pweb.dodois.base.Entidade;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,13 +18,17 @@ import lombok.Getter;
 @Data
 @Entity
 @EqualsAndHashCode(callSuper = false)
-public class Grupo extends Entidade{
+public class Receita extends Entidade{
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id_grupo") @Id @Getter 
+	@Column(name = "id_receita") 
+    @Id 
+    @Getter 
 	private Long id;
-    
-    @OneToMany(mappedBy="grupo", cascade = CascadeType.ALL)
+
     @Column(nullable = false)
-    @JsonManagedReference
-    private List<Usuario> usuarios;
+    private String descricao;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_diagnostico")
+    private Diagnostico diagnostico;
 }
