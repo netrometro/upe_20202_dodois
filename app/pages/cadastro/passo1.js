@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Menu from "/components/menu";
 
 export default class Passo1 extends Component {
   constructor(props){
@@ -33,6 +34,8 @@ export default class Passo1 extends Component {
 
   render() {
     return (
+      <>
+      <Menu />
       <div className="container-fluid d-flex justify-content-center">
         <div className="row col-sm-4 p-3">
           <h3 className="mt-5 mb-5 text-center">Preencha os dados para realizar seu cadastro</h3>
@@ -55,6 +58,7 @@ export default class Passo1 extends Component {
           <button onClick={this.onCadastrar} className="btn btn-secondary">Realizar cadastro</button>
         </div>
       </div>
+      </>
     )
   }
 }
