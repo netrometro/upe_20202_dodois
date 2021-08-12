@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
+import { Button } from 'reactstrap';
 
 export default class Evento extends Component {
 
@@ -38,6 +39,9 @@ export default class Evento extends Component {
                         </CardBody>
                     </Card></Col>
                 </Row>
+                <div className="center">
+                    <Button color="secondary" className="mt-3" size="lg" block >Concluir evento</Button>{' '}
+                </div>                
             </Container>
         )
     }
