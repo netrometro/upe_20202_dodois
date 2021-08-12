@@ -1,5 +1,4 @@
 package br.upe.pweb.dodois.usuario.model;
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -16,7 +15,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import br.upe.pweb.dodois.base.Entidade;
