@@ -2,20 +2,20 @@ package br.upe.pweb.dodois.usuario.servico;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import br.upe.pweb.dodois.usuario.dao.IAuthDao;
+import br.upe.pweb.dodois.usuario.dao.ICredenciadoDao;
 import br.upe.pweb.dodois.usuario.model.Credenciado;
-import br.upe.pweb.dodois.usuario.servico.interfaces.IAuthServico;
+import br.upe.pweb.dodois.usuario.servico.interfaces.ICredenciadoServico;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Service
-public class AuthServico implements IAuthServico {
+public class CredenciadoServico implements ICredenciadoServico {
   @Autowired
-  private IAuthDao dao;
+  private ICredenciadoDao dao;
 
   @SuppressWarnings("unchecked")
   @Override
-  public IAuthDao getDao() {
+  public ICredenciadoDao getDao() {
     return this.dao;
   }
 
