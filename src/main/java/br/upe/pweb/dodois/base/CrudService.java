@@ -12,6 +12,10 @@ public interface CrudService<T extends Entidade, Long> {
     
   }
   
+  default void validarProcurar(Long id) {
+    
+  }
+
   default T incluir(T entidade) {
     this.validarIncluir(entidade);
     entidade.setDataInclusao(LocalDateTime.now());
@@ -19,9 +23,9 @@ public interface CrudService<T extends Entidade, Long> {
   }
 
   default T alterar(T entidade) {
+    this.validarIncluir(entidade);
     entidade.setDataUltimaAlteracao(LocalDateTime.now());
-    final T salva = getDao().save(entidade);
-    return salva;
+    return getDao().save(entidade);
   }
 
   default void excluir(Long id) {
@@ -33,6 +37,7 @@ public interface CrudService<T extends Entidade, Long> {
   }
 
   default T procurar(Long id) {
+    validarProcurar(id);
     return getDao().findById(id).get();
   }
 }

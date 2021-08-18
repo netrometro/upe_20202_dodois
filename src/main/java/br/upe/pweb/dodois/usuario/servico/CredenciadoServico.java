@@ -24,20 +24,28 @@ public class CredenciadoServico implements ICredenciadoServico {
     Pattern pattern = Pattern.compile("^[a-z0-9.]+@[a-z0-9]+.[a-z]+.([a-z]+)?$");
     Matcher matcher = pattern.matcher(credenciado.getEmail());
 
-    if (credenciado.getEmail() == null && credenciado.getSenha() == null){
-      throw new RuntimeException("Email e senha não especificados.");
+    if (credenciado.getEmail() == null || credenciado.getSenha() == null){
+      throw new RuntimeException("CAMPOS_INCORRETOS");
     }
 
     else if (!matcher.matches()){
-      throw new RuntimeException("O email deve seguir o padrão: email@mail.com.");
+      throw new RuntimeException("EMAIL_INVALIDO");
     }
 
     else if (credenciado.getSenha().length() < 8 || credenciado.getSenha().length() > 32){
-      throw new RuntimeException("A senha deve possuir entre 8 e 32 caracteres.");
+      throw new RuntimeException("SENHA_INVALIDA");
     }
 
     else if (getDao().existsByEmail(credenciado.getEmail())) {
-      throw new RuntimeException("Usuário já existente com esse email.");
+      throw new RuntimeException("USUARIO_JA_EXISTE");
     }
+  }
+
+
+  @Override
+  public void validarProcurar(Long id) {
+    if(!getDao().existsById(id)){
+      throw new RuntimeException("CREDENCIADO_NAO_EXISTE");
+    } 
   }
 }
