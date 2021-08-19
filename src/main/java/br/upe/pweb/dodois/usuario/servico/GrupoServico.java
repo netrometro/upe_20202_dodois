@@ -23,7 +23,7 @@ public class GrupoServico implements IGrupoServico {
 
   public Grupo incluirGrupoInicial(Usuario usuario){
     Grupo grupo = new Grupo();
-    grupo.setDataUltimaAlteracao(LocalDateTime.now());
+    grupo.setDataInclusao(LocalDateTime.now());
     ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
     usuarios.add(usuario);
     grupo.setUsuarios(usuarios);

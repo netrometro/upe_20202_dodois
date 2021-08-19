@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import br.upe.pweb.dodois.usuario.dao.ICredenciadoDao;
 import br.upe.pweb.dodois.usuario.model.Credenciado;
 import br.upe.pweb.dodois.usuario.servico.interfaces.ICredenciadoServico;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Service
 public class CredenciadoServico implements ICredenciadoServico {
@@ -21,14 +19,12 @@ public class CredenciadoServico implements ICredenciadoServico {
 
   @Override
   public void validarIncluir(Credenciado credenciado) {
-    Pattern pattern = Pattern.compile("^[a-z0-9.]+@[a-z0-9]+.[a-z]+.([a-z]+)?$");
-    Matcher matcher = pattern.matcher(credenciado.getEmail());
 
     if (credenciado.getEmail() == null || credenciado.getSenha() == null){
       throw new RuntimeException("CAMPOS_INCORRETOS");
     }
 
-    else if (!matcher.matches()){
+    else if (!credenciado.getEmail().matches("^[a-z0-9.]+@[a-z0-9]+.[a-z]+.([a-z]+)?$")){
       throw new RuntimeException("EMAIL_INVALIDO");
     }
 

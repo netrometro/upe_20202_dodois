@@ -59,12 +59,10 @@ public class AuthController {
       Credenciado credenciado = credenciadoServico.procurar(credenciadoId);
       Usuario usuarioCriado = usuarioServico.incluir(usuario);
       Grupo grupo = grupoServico.incluirGrupoInicial(usuarioCriado);
-      usuarioCriado.setCredenciado(credenciado);
-      usuarioCriado.setGrupo(grupo);
-      usuarioServico.alterar(usuarioCriado);
+      usuarioServico.alterarUsuarioNovo(credenciado, grupo, usuarioCriado);
       json.addProperty("status", "DADOS_USUARIO_DEFINIDOS_SUCESSO");
       status = HttpStatus.OK;
-    } catch (RuntimeException e) {
+    } catch (Exception e) {
       json.addProperty("status", e.getMessage());
       status = HttpStatus.BAD_REQUEST;
     }
