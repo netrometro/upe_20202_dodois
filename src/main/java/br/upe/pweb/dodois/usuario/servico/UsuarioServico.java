@@ -1,9 +1,10 @@
-package br.upe.pweb.dodois.usuario.servicos;
+package br.upe.pweb.dodois.usuario.servico;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.upe.pweb.dodois.usuario.dao.IUsuarioDao;
+import br.upe.pweb.dodois.usuario.servico.interfaces.IUsuarioServico;
 
 @Service
 public class UsuarioServico implements IUsuarioServico {

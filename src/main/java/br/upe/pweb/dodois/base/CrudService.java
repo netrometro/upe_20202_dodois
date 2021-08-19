@@ -1,6 +1,7 @@
 package br.upe.pweb.dodois.base;
 
-import java.util.Optional;
+import java.time.LocalDateTime;
+
 import org.springframework.data.repository.CrudRepository;
 
 public interface CrudService<T extends Entidade, Long> {
@@ -8,11 +9,13 @@ public interface CrudService<T extends Entidade, Long> {
   <Dao extends CrudRepository<T, Long>> Dao getDao();
 
   default T incluir(T entidade) {
+    entidade.setDataInclusao(LocalDateTime.now());
     final T salva = getDao().save(entidade);
     return salva;
   }
 
   default T alterar(T entidade) {
+    entidade.setDataUltimaAlteracao(LocalDateTime.now());
     final T salva = getDao().save(entidade);
     return salva;
   }
@@ -25,7 +28,7 @@ public interface CrudService<T extends Entidade, Long> {
     return getDao().findAll();
   }
 
-  default Optional<T> procurar(Long id) {
-    return getDao().findById(id);
+  default T procurar(Long id) {
+    return getDao().findById(id).get();
   }
 }
