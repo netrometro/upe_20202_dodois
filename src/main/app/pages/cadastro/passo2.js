@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Menu from "/components/menu";
-import { FormGroup, Label, Input} from 'reactstrap';
+import { FormGroup, Input} from 'reactstrap';
 
 export default class Passo1 extends Component {
     constructor(props) {

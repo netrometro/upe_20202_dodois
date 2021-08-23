@@ -7,7 +7,7 @@ export default class Menu extends Component {
         return (
             <div>
                 <nav className="navbar navbar-expand-md navbar-light bg-light">
-                    <Link className="navbar-brand" href="/">Tracker de Dodois</Link>
+                    <img src="https://i.imgur.com/Vugdwag.png" className="m-2" height="35px"/>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                         <span className="navbar-toggler-icon"></span>
                     </button>
