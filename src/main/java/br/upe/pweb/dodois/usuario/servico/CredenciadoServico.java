@@ -2,35 +2,46 @@ package br.upe.pweb.dodois.usuario.servico;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import br.upe.pweb.dodois.usuario.dao.ICredenciadoDao;
 import br.upe.pweb.dodois.usuario.model.Credenciado;
 import br.upe.pweb.dodois.usuario.servico.interfaces.ICredenciadoServico;
 
 @Service
 public class CredenciadoServico implements ICredenciadoServico {
-	@Autowired private ICredenciadoDao dao;
+  @Autowired
+  private ICredenciadoDao dao;
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public ICredenciadoDao getDao() {
-		return this.dao;
-	}
+  @SuppressWarnings("unchecked")
+  @Override
+  public ICredenciadoDao getDao() {
+    return this.dao;
+  }
 
-	public boolean emailExiste(String email){
-		return getDao().existsByEmail(email);
-	}
+  @Override
+  public void validarIncluir(Credenciado credenciado) {
 
-	public boolean existe(Long id){
-		return getDao().existsById(id);
-	}
+    if (credenciado.getEmail() == null || credenciado.getSenha() == null){
+      throw new RuntimeException("CAMPOS_INCORRETOS");
+    }
 
-	public boolean credenciaisExistem(Credenciado credenciado){
-		return getDao().existsByEmailAndSenha(credenciado.getEmail(), credenciado.getSenha());
-	}
+    else if (!credenciado.getEmail().matches("^[a-z0-9.]+@[a-z0-9]+.[a-z]+.([a-z]+)?$")){
+      throw new RuntimeException("EMAIL_INVALIDO");
+    }
 
-	public Credenciado procurarPorEmail(String email){
-		return getDao().findByEmail(email);
-	}
+    else if (credenciado.getSenha().length() < 8 || credenciado.getSenha().length() > 32){
+      throw new RuntimeException("SENHA_INVALIDA");
+    }
 
+    else if (getDao().existsByEmail(credenciado.getEmail())) {
+      throw new RuntimeException("USUARIO_JA_EXISTE");
+    }
+  }
+
+
+  @Override
+  public void validarProcurar(Long id) {
+    if(!getDao().existsById(id)){
+      throw new RuntimeException("CREDENCIADO_NAO_EXISTE");
+    } 
+  }
 }

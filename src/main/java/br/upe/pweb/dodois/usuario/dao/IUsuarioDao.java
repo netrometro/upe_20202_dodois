@@ -6,4 +6,4 @@ import org.springframework.stereotype.Repository;
 import br.upe.pweb.dodois.usuario.model.Usuario;
 
 @Repository
-public interface IUsuarioDao extends CrudRepository<Usuario, Long> { }
+public interface IUsuarioDao extends CrudRepository<Usuario, Long> {}

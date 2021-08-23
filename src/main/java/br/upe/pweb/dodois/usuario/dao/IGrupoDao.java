@@ -6,4 +6,4 @@ import org.springframework.stereotype.Repository;
 import br.upe.pweb.dodois.usuario.model.Grupo;
 
 @Repository
-public interface IGrupoDao extends CrudRepository<Grupo, Long> { }
+public interface IGrupoDao extends CrudRepository<Grupo, Long> {}

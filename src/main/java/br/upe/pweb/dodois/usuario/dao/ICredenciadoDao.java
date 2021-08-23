@@ -8,6 +8,4 @@ import br.upe.pweb.dodois.usuario.model.Credenciado;
 @Repository
 public interface ICredenciadoDao extends CrudRepository<Credenciado, Long> {
     boolean existsByEmail(String email);
-    boolean existsByEmailAndSenha(String email, String senha);
-    Credenciado findByEmail(String email);
 }
