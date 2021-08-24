@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Component } from "react";
 
 export default class Menu extends Component {
@@ -7,7 +8,7 @@ export default class Menu extends Component {
         return (
             <div>
                 <nav className="navbar navbar-expand-md navbar-light bg-light">
-                    <img src="https://i.imgur.com/Vugdwag.png" className="m-2" height="35px"/>
+                    <Image src="https://i.imgur.com/Vugdwag.png" className="m-2" height="35px"/>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                         <span className="navbar-toggler-icon"></span>
                     </button>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Tracker de Dodóis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<style>
+    .text-card-color {
+        color: #3d3d3d;
+        text-align: justify;
+    }
+</style>
+
+<body className="text-light bg-info">
+    <div id="app">
+        <ul className="nav text-info bg-light">
+            <li className="nav-item">
+              <h3 className="nav-link" href="/">Tracker de Dodóis</h3>
+            </li>
+          </ul>
+        <div className="container-fluid">
+            <div className="row justify-content-center">
+                <div className="col-sm-8 mt-3">
+                    <select className="form-control" v-model="opcao" @change="onSelecionarOpcao()">
+                        <option value="criar">Selecione uma opção</option>
+                        <option value="criar">Criar</option>
+                        <option value="listar">Listar</option>
+                    </select>
+                    <div v-if="opcao == 'criar'">
+                        <h3 className="text-center mt-3">Cadastrar novo usuário</h3>
+                        <form>
+                            <div className="form-group">
+                                <label>Nome:</label>
+                                <input type="text" v-model="usuario.nome" className="form-control"
+                                    placeholder="Fulano de Tal">
+                            </div>
+                            <div className="form-group">
+                                <label>Sexo:</label>
+                                <select className="form-control" v-model="usuario.sexo">
+                                    <option value="MASUCLINO">Masculino</option>
+                                    <option value="FEMININO">Feminino</option>
+                                    <option value="OUTROS">Outros</option>
+                                </select>
+                            </div>
+                            <div className="form-group">
+                                <label>Data de nascimento:</label>
+                                <input type="date" v-model="usuario.dataNasc" className="form-control"
+                                    placeholder="Digite uma senha forte">
+                            </div>
+                            <div className="form-group">
+                                <label>Peso:</label>
+                                <input type="number" v-model="usuario.peso" className="form-control" placeholder="70.5">
+                            </div>
+                            <div className="form-group">
+                                <label>Altura em centrímetros:</label>
+                                <input type="number" v-model="usuario.altura" className="form-control" placeholder="180">
+                            </div>
+                            <div className="form-group">
+                                <label>Parentesco</label>
+                                <select className="form-control" v-model="usuario.parentesco">
+                                    <option value="FILHA">Filha</option>
+                                    <option value="FILHO">Filho</option>
+                                    <option value="PAI">Pai</option>
+                                    <option value="MÃE">Mãe</option>
+                                    <option value="AVÓ">Avó</option>
+                                    <option value="AVÔ">Avô</option>
+                                    <option value="TIO">Tio</option>
+                                    <option value="TIA">Tia</option>
+                                    <option value="FAMILIAR">Familiar</option>
+                                    <option value="CONHECIDO">Conhecido</option>
+                                    <option value="VIZINHO">Vizinho</option>
+                                </select>
+                            </div>
+                            <div className="form-group">
+                                <label>Email:</label>
+                                <input type="email" v-model="usuario.email" className="form-control"
+                                    placeholder="fulano@gmail.com">
+                            </div>
+                            <div className="form-group">
+                                <label>Senha:</label>
+                                <input type="password" v-model="usuario.senha" className="form-control"
+                                    placeholder="Digite uma senha forte">
+                            </div>
+                            <div className="col text-center">
+                                <button className="btn btn-light" type="button" v-on:click="onCadastrarUsuario()">Criar novo usuário</button>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div v-if="opcao == 'alterar'">
+                        <h3 className="text-center mt-3">Alterar usuário</h3>
+                        <form>
+                            <div className="form-group">
+                                <label>Nome:</label>
+                                <input type="text" v-model="usuario.nome" className="form-control"
+                                    placeholder="Fulano de Tal">
+                            </div>
+                            <div className="form-group">
+                                <label>Sexo:</label>
+                                <select className="form-control" v-model="usuario.sexo">
+                                    <option value="MASUCLINO">Masculino</option>
+                                    <option value="FEMININO">Feminino</option>
+                                    <option value="OUTROS">Outros</option>
+                                </select>
+                            </div>
+                            <div className="form-group">
+                                <label>Data de nascimento:</label>
+                                <input type="date" v-model="usuario.dataNasc" className="form-control"
+                                    placeholder="Digite uma senha forte">
+                            </div>
+                            <div className="form-group">
+                                <label>Peso:</label>
+                                <input type="number" v-model="usuario.peso" className="form-control" placeholder="70.5">
+                            </div>
+                            <div className="form-group">
+                                <label>Altura em centrímetros:</label>
+                                <input type="number" v-model="usuario.altura" className="form-control" placeholder="180">
+                            </div>
+                            <div className="form-group">
+                                <label>Parentesco</label>
+                                <select className="form-control" v-model="usuario.parentesco">
+                                    <option value="FILHA">Filha</option>
+                                    <option value="FILHO">Filho</option>
+                                    <option value="PAI">Pai</option>
+                                    <option value="MÃE">Mãe</option>
+                                    <option value="AVÓ">Avó</option>
+                                    <option value="AVÔ">Avô</option>
+                                    <option value="TIO">Tio</option>
+                                    <option value="TIA">Tia</option>
+                                    <option value="FAMILIAR">Familiar</option>
+                                    <option value="CONHECIDO">Conhecido</option>
+                                    <option value="VIZINHO">Vizinho</option>
+                                </select>
+                            </div>
+                            <div className="form-group">
+                                <label>Email:</label>
+                                <input type="email" v-model="usuario.email" className="form-control"
+                                    placeholder="fulano@gmail.com">
+                            </div>
+                            <div className="form-group">
+                                <label>Senha:</label>
+                                <input type="password" v-model="usuario.senha" className="form-control"
+                                    placeholder="Digite uma senha forte">
+                            </div>
+                            <div className="col text-center">
+                                <button className="btn btn-light" type="button" v-on:click="onAlterarUsuario()">Alterar usuário</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div v-if="opcao == 'listar'">
+                        <div className="container overflow-hidden">
+                            <h3 className="text-center mt-3">Lista de usuários</h3>
+                            <div className="row">
+                                <div className="col" v-for="usuario in usuarios">
+                                    <div className="card m-2" style="max-width: 25rem;">
+                                        <div className="card-body">
+                                            <h3 className="card-title text-primary text-center">{{usuario.nome}}</h3>
+                                            <label className="text-primary"><Strong>Data de Nascimento: </Strong><label
+                                                    className="text-card-color">{{usuario.dataNasc}}</label></label></br>
+                                            <label className="text-primary"><Strong>Email: </Strong><label
+                                                    className="text-card-color">{{usuario.email}}</label></label></br>
+                                            <label className="text-primary"><Strong>Sexo: </Strong><label
+                                                    className="text-card-color">{{usuario.sexo}}</label></label></br>
+                                            <label className="text-primary"><Strong>Altura: </Strong><label
+                                                    className="text-card-color">{{usuario.altura}}</label></label></br>
+                                            <label className="text-primary"><Strong>Peso: </Strong><label
+                                                    className="text-card-color">{{usuario.peso}}</label></label></br>
+                                            <label className="text-primary"><Strong>Parentesco: </Strong><label
+                                                    className="text-card-color">{{usuario.parentesco}}</label></label></br>
+                                            <div className="row col">
+                                                <div className="m-2" v-on:click="onDeletarUsuario(usuario.nome, usuario.id)">
+                                                    <a className="btn btn-danger">Apagar usuário</a>
+                                                </div>
+                                                <div className="m-2" v-on:click="onPreAlterarUsuario(usuario)">
+                                                    <a className="btn btn-warning">Atualizar usuário</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                usuario: {
+                    nome: "",
+                    sexo: "",
+                    email: "",
+                    senha: "",
+                    dataNasc: "",
+                    parentesco: "",
+                    peso: "",
+                    altura: ""
+                },
+                id: "",
+                usuarios: [],
+                opcao: 'criar',
+                baseUrl: 'http://localhost:5000/api',
+                header: { headers: { 'Content-Type': 'application/json' } }
+            },
+            methods: {
+                onSelecionarOpcao: function () {
+                    if (this.opcao == "listar") {
+                        this.onListarUsuarios();
+                    }
+                },
+                onCadastrarUsuario: function () {
+                    axios.post(`${this.baseUrl}/usuario`, this.usuario, this.header).then((response) => {
+                        swal("Sucesso", `Usuário ${this.usuario.nome} cadastrado com sucesso`, "success");
+                    }).catch((error) => {
+                        console.log(response);
+                    });
+                },
+                onListarUsuarios: function () {
+                    axios.get(`${this.baseUrl}/usuarios`, this.header).then((response) => {
+                        this.usuarios = response.data;
+                    }).catch((error) => {
+                        console.log(response);
+                    });
+                },
+                onPreAlterarUsuario: function (usuario) {
+                    this.opcao = "alterar";
+                    this.id = usuario.id;
+                    this.usuario = {
+                    nome: usuario.nome,
+                    sexo: usuario.sexo,
+                    email: usuario.email,
+                    senha: usuario.senha,
+                    dataNasc: usuario.dataNasc,
+                    parentesco: usuario.parentesco,
+                    peso: usuario.peso,
+                    altura: usuario.altura
+                }
+                },
+                onAlterarUsuario: function () {
+                    axios.put(`${this.baseUrl}/usuario/${this.id}`, this.usuario, this.header).then((response) => {
+                        swal("Sucesso", `Usuário ${this.usuario.nome} usuario alterado com sucesso`, "success");
+                    }).catch((error) => {
+                        console.log(response);
+                    });
+                },
+                onDeletarUsuario: function (nome, id) {
+                    axios.delete(`${this.baseUrl}/usuario/${id}`, this.header).then((response) => {
+                        swal("Sucesso", `Usuário ${nome} deletado com sucesso`, "success");
+                        onListarUsuarios();
+                    }).catch((error) => {
+                        console.log(response);
+                    });
+                }
+            }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
