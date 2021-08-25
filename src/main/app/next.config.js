@@ -3,6 +3,7 @@ module.exports = {
   images: {
     loader: "imgix",
     path: "",
+    disableStaticImages: true,
   },
   exportPathMap: async function (
     defaultPathMap,
