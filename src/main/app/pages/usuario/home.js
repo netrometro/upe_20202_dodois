@@ -20,10 +20,11 @@ import {
 } from "reactstrap";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { NovoParente } from "./parentes";
- 
+import MenuUsuario from "../../components/menuUsuario";
+
 class MiniPainel extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             toggleEvento: false,
@@ -33,12 +34,12 @@ class MiniPainel extends Component {
         this.onToggleParente = this.onToggleParente.bind(this);
     }
 
-    onToggleEvento(){
-        this.setState({toggleEvento: !this.state.toggleEvento});
+    onToggleEvento() {
+        this.setState({ toggleEvento: !this.state.toggleEvento });
     }
 
-    onToggleParente(){
-        this.setState({toggleParente: !this.state.toggleParente});
+    onToggleParente() {
+        this.setState({ toggleParente: !this.state.toggleParente });
     }
 
     render() {
@@ -333,25 +334,31 @@ export default class Home extends Component {
 
     render() {
         return (
-            <Container>
-                <Row>
-                    <MiniPainel />
-                </Row>
-                <Row>
-                    <Col sm="6">
-                        <Lembretes />
-                    </Col>
-                    <Col sm="6">
-                        <Eventos />
-                    </Col>
-                    <Col sm="6">
-                        <Diagnosticos />
-                    </Col>
-                    <Col sm="6">
-                        <Historico />
-                    </Col>
-                </Row>
-            </Container>
+            <>
+            <MenuUsuario/>
+                <Container>
+                    <Row>
+                        <MiniPainel />
+                    </Row>
+                    <Row>
+                        <Col sm="6">
+                            <Lembretes />
+                        </Col>
+                        <Col sm="6">
+                            <Eventos />
+                        </Col>
+                        <Col sm="6">
+                            <Diagnosticos />
+                        </Col>
+                        <Col sm="6">
+                            <Historico />
+                        </Col>
+                    </Row>
+                </Container>
+                <footer className="muito-texto" >
+                    <p style={{ marginTop: "10px" }}>&copy; Todos os Direitos Reservados</p>
+                </footer>
+            </>
         )
     }
 }

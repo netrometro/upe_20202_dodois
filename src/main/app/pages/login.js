@@ -13,26 +13,6 @@ export default class Login extends Component {
 
     render() {
         return (
-<<<<<<< HEAD
-            
-            <div className="container-fluid d-flex justify-content-center mt-5">
-                <div className="row col-sm-6 p-3 mt-5" style={style}>
-                    <form>
-                        <div className="mb-3" >
-                            <h3 className="d-flex justify-content-center" style={{color:"#216651"}}>Entrar</h3>
-                            <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Email"/>
-                        </div>
-                        <div className="mb-3">
-                            <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Senha"/>
-                        </div>
-                        <div className="mb-3 form-check">
-                            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                            <label className="form-check-label" >Me Manter Conectado</label>
-                        </div>
-                        <div className="d-flex justify-content-center " >
-                            <div className="row col-sm-5">
-                                <button className="btn mt-5" style={{background:"#216651", color:"white", borderColor:"#74BAA0"}}>Entrar</button>
-=======
             <>
             <Menu />
                 <div className="container-fluid d-flex justify-content-center mt-5">
@@ -41,7 +21,6 @@ export default class Login extends Component {
                             <div className="mb-3" >
                                 <h3 className="d-flex justify-content-center" style={{ color: "#216651" }}>Entrar</h3>
                                 <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Email" />
->>>>>>> f228641e54b883891964444d21fd8c4b245bbf54
                             </div>
                             <div className="mb-3">
                                 <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Senha" />

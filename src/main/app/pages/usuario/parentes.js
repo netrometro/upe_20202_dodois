@@ -157,6 +157,9 @@ export default class Parentes extends Component {
                     </Row>
                 </ListGroup>
             </Container>
+            <footer className="pouco-texto" >
+                    <p style={{ marginTop: "10px" }}>&copy; Todos os Direitos Reservados</p>
+                </footer>
             </div>
         )
     }
