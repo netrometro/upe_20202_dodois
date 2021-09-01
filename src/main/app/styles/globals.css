@@ -12,3 +12,14 @@ body {
   display: flex;
   justify-content: center;
 }
+
+footer.pouco-texto{
+  text-align: center;
+  position:absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+footer.muito-texto{
+  text-align: center;
+}

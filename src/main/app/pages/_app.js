@@ -12,7 +12,6 @@ export default function Dodois({ Component, pageProps }) {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>
       </Head>
       <Component {...pageProps} />
-      <Footer/>
     </>
   )
 };

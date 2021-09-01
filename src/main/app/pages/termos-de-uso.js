@@ -135,6 +135,9 @@ export default class sobre extends Component {
                         com as leis do Tracker de Dodois e você se submete irrevogavelmente
                         à jurisdição exclusiva dos tribunais naquele estado ou localidade.</p>
                 </div>
+                <footer className="muito-texto" >
+                    <p style={{ marginTop: "10px" }}>&copy; Todos os Direitos Reservados</p>
+                </footer>
             </>
         )
     }
