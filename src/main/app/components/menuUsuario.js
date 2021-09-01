@@ -7,7 +7,7 @@ export default class MenuUsuario extends Component {
         return (
             <div>
                 <nav className="navbar navbar-expand-md">
-                <a href="/"><img src="https://i.imgur.com/Vugdwag.png" className="m-2 mt-2" height="40px" /></a>
+                <a href="/"><img src="https://i.imgur.com/Vugdwag.png" className=" mt-2" height="40px" /></a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                         <span className="navbar-toggler-icon"></span>
                     </button>
