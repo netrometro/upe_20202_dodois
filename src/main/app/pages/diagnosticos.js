@@ -59,6 +59,9 @@ export default class Diagnosticos extends Component {
                         </CardBody>
                     </Card>
                 </Container>
+                <footer className="pouco-texto" >
+                    <p style={{ marginTop: "10px" }}>&copy; Todos os Direitos Reservados</p>
+                </footer>
             </div>
         )
     }

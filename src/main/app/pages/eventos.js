@@ -13,8 +13,8 @@ export default class Lembretes extends Component {
     render() {
         return (
             <>
+                <MenuUsuario />
                 <Container>
-                    <MenuUsuario />
                     <h3 className="mt-5" style={{ color: "#216651" }}>Eventos em andamento</h3>
                     <Card className="mt-3">
                         <CardBody>
@@ -28,6 +28,9 @@ export default class Lembretes extends Component {
                         </CardBody>
                     </Card>
                 </Container>
+                <footer className="muito-texto" >
+                    <p style={{ marginTop: "10px" }}>&copy; Todos os Direitos Reservados</p>
+                </footer>
             </>
         )
     }

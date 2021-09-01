@@ -44,6 +44,9 @@ export default class Passo1 extends Component {
                         <button className="btn mt-5" style={{background:"#216651", color:"white"}}>Finalizar</button>
                     </div>
                 </div>
+                <footer className="muito-texto" >
+                    <p style={{ marginTop: "10px" }}>&copy; Todos os Direitos Reservados</p>
+                </footer>
             </>
         )
     }
