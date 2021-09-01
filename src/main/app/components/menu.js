@@ -14,16 +14,21 @@ export default class Menu extends Component {
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
-                  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Página Inicial</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre</a>
-                      </li>
-                    </ul>
-                  </div>
+                  <div className="collapse navbar-collapse justify-content-end m-3" id="navbarNav">
+                        <ul className="navbar-nav ms-auto">
+                            <li className="nav-item m-1 me-md-4">
+                                <Link className="nav-link" href="/"><a className="text-decoration-none" style={{color:"#216651"}}>Página Inicial</a></Link>
+                            </li>
+                            <li className="nav-item m-1 me-md-4">
+                                <Link className="nav-link" href="/termos-de-uso"><a className="text-decoration-none" style={{color:"#216651"}}>Termos de Uso</a></Link>
+                            </li>
+                        </ul>
+                        <ul className="navbar-nav">
+                            <li className="nav-item m-1">
+                                <Link className="nav-link" href="/sobre"><a className="text-decoration-none" style={{color:"#216651"}}>Sobre</a></Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
               </nav>
             
