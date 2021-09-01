@@ -14,7 +14,7 @@ export default class Login extends Component {
         return (
             
             <div className="container-fluid d-flex justify-content-center mt-5">
-                <div className="row col-sm-6 p-3 mt-5">
+                <div className="row col-sm-6 p-3 mt-5" style={style}>
                     <form>
                         <div className="mb-3" >
                             <h3 className="d-flex justify-content-center" style={{color:"#216651"}}>Entrar</h3>
@@ -32,7 +32,7 @@ export default class Login extends Component {
                                 <button className="btn mt-5" style={{background:"#216651", color:"white"}}>Entrar</button>
                             </div>
                         </div>
-                        <div className="text-center text-decoration mt-3">
+                        <div className="text-center mt-3">
                             <Link href="url "><a className="text-decoration-none" style={{color:"#216651"}}><b>Ainda não sou cadastrado</b></a></Link>
                         </div>
                         <div className="text-center mt-3">

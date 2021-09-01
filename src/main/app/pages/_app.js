@@ -1,7 +1,9 @@
+import "tailwindcss/tailwind.css";
 import '../styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Head from 'next/head';
 import Footer from '../components/footer';
+
 
 export default function Dodois({ Component, pageProps }) {
   return (
