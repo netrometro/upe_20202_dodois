@@ -12,8 +12,9 @@ export default class Login extends Component {
 
     render() {
         return (
+            
             <div className="container-fluid d-flex justify-content-center mt-5">
-                <div className="row col-sm-6 p-3 mt-5" style={style}>
+                <div className="row col-sm-6 p-3 mt-5">
                     <form>
                         <div className="mb-3" >
                             <h3 className="d-flex justify-content-center" style={{color:"#216651"}}>Entrar</h3>
