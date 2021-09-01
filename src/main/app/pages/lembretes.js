@@ -14,8 +14,9 @@ export default class Lembretes extends Component {
     render() {
         return (
             <div>
-                <MenuUsuario />
+                
                 <Container>
+                <MenuUsuario />
                     <Card className="mt-3">
                         <CardBody>
                             <CardTitle tag="h5" >Lembretes</CardTitle>
