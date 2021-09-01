@@ -32,27 +32,30 @@ export default class Diagnosticos extends Component {
                                         <td>Fulano</td>
                                         <td>12/08/2021</td>
                                         <td>Dermatite de contato devido...</td>
-                                        <td className="d-flex justify-content-end" ><Button id="Popover1" color="success" outline type="button" size="sm" >Ver mais</Button></td>
+                                        <td className="d-flex justify-content-end" ><Button color="success" outline type="button" size="sm" >Ver mais</Button></td>
                                     </tr>
                                     <tr style={{ color: "#74BAA0" }}>
                                         <th style={{ color: "#216651" }}>2</th>
                                         <td>Cicrano</td>
                                         <td>12/08/2021</td>
                                         <td>Dermatite de contato devido...</td>
-                                        <td className="d-flex justify-content-end"><Button id="Popover1" color="success" outline type="button" size="sm" >Ver mais</Button></td>
+                                        <td className="d-flex justify-content-end"><Button color="success" outline type="button" size="sm" >Ver mais</Button></td>
                                     </tr>
                                     <tr style={{ color: "#74BAA0" }}>
                                         <th style={{ color: "#216651" }}>3</th>
                                         <td>Beltranon</td>
                                         <td>12/08/2021</td>
                                         <td>Dermatite de contato devido...</td>
-                                        <td className="d-flex justify-content-end"><Button id="Popover1" color="success" outline type="button" size="sm" >Ver mais</Button></td>
+                                        <td className="d-flex justify-content-end"><Button color="success" outline type="button" size="sm" >Ver mais</Button></td>
                                     </tr>
                                 </tbody>
                             </Table>
                         </CardBody>
                     </Card>
-                </Container>                
+                </Container>
+                <footer className="pouco-texto" >
+                    <p style={{ marginTop: "10px" }}>&copy; Todos os Direitos Reservados</p>
+                </footer>
             </div>
         )
     }

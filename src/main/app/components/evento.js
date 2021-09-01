@@ -52,7 +52,7 @@ export default class Evento extends Component {
                         </Card></Col>
                 </Row>
                 <div className="center">
-                    <Button color="secondary" className="mt-5" size="lg" block style={{ background: "#216651", color: "white" }}>Concluir evento</Button>{' '}
+                    <Button color="secondary" className="mt-5" size="lg" block style={{ background: "#216651", color: "white", borderColor:"#74BAA0"}}>Concluir evento</Button>{' '}
                 </div>
             </Container>
         )

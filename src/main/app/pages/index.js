@@ -98,7 +98,7 @@ export default class Passo1 extends Component {
             </Col>
           </Row>
           <div className="d-flex justify-content-center">
-            <button onClick={() => { window.location.href = "#form" }} className="btn m-4 btn-lg" style={{ background: "#216651", color: "white" }}>Começar</button>
+            <button onClick={() => { window.location.href = "#form" }} className="btn m-4 btn-lg" style={{background:"#216651", color:"white", borderColor:"#74BAA0"}}>Começar</button>
           </div>
         </Container>
 
@@ -118,7 +118,7 @@ export default class Passo1 extends Component {
                 <label className="form-label">Confirmação de senha:</label>
                 <input onChange={this.onDefinirConfirmacaoSenha} type="password" className="form-control" />
               </div>
-              <button onClick={this.onCadastrar} className="btn" style={{ background: "#216651", color: "white" }}>Realizar cadastro</button>
+              <button onClick={this.onCadastrar} className="btn" style={{background:"#216651", color:"white", borderColor:"#74BAA0"}}>Realizar cadastro</button>
             </div>
           </div>
         </div>
