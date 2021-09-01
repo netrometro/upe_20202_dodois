@@ -41,7 +41,7 @@ export default class Passo1 extends Component {
                             <label className="form-label" style={{color:"#216651"}}>Peso</label>
                             <input style={{minwidth:"280px"}} type="password" className="form-control" />
                         </div>
-                        <button className="btn mt-5" style={{background:"#216651", color:"white"}}>Finalizar</button>
+                        <button className="btn mt-5" style={{background:"#216651", color:"white", borderColor:"#74BAA0"}}>Finalizar</button>
                     </div>
                 </div>
             </>

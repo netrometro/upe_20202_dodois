@@ -22,7 +22,7 @@ export default class ResetarSenha extends Component {
                         </div>
                         <div className="d-flex justify-content-center" >
                             <div className="row col-sm-5">
-                                <button className="btn mt-5" style={{background:"#216651", color:"white"}}>Enviar</button>
+                                <button className="btn mt-5" style={{background:"#216651", color:"white", borderColor:"#74BAA0"}}>Enviar</button>
                             </div>
                         </div>
                         <div className="text-center mt-3">
