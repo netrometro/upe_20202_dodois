@@ -1,4 +1,4 @@
-@charset "UTF-8";body,html{padding:0;margin:0;width:100%;right:100%;font-family:Roboto!important;background-color:#f5fffa!important}.center{display:-moz-box;display:flex;-moz-box-pack:center;justify-content:center}
+@charset "UTF-8";body,html{padding:0;margin:0;width:100%;right:100%;font-family:Roboto!important}.center{display:-moz-box;display:flex;-moz-box-pack:center;justify-content:center}footer.pouco-texto{text-align:center;position:absolute;bottom:0;width:100%}footer.muito-texto{text-align:center}
 /*!
  * Bootstrap v5.1.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
