@@ -35,10 +35,10 @@ export default class Login extends Component {
                                 </div>
                             </div>
                             <div className="text-center mt-3">
-                                <Link href="url "><a className="text-decoration-none" style={{ color: "#216651" }}><b>Ainda não sou cadastrado</b></a></Link>
+                                <Link passHref href="/" className="text-decoration-none" style={{ color: "#216651" }}><b>Ainda não sou cadastrado</b></Link>
                             </div>
                             <div className="text-center mt-3">
-                                <Link className="text-danger " href="url "><a className="text-decoration-none" style={{ color: "#216651" }}><b>Esqueci minha senha</b></a></Link>
+                                <Link passHref className="text-danger text-decoration-none" style={{ color: "#216651" }} href="/resetar-senha"><b>Esqueci minha senha</b></Link>
                             </div>
                         </form>
                     </div>

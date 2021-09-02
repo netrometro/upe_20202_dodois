@@ -6,23 +6,23 @@ export default class Menu extends Component {
 
     render() {
         return (
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a href="/"><img src="https://i.imgur.com/Vugdwag.png" className="m-2" height="25px"/></a>
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <Link passHref href="/"><Image src="https://i.imgur.com/Vugdwag.png" className="m-2" height="25px"/></Link>
                 
                 
-                <div class="container-fluid d-flex ">
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <div className="container-fluid d-flex ">
+                  <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                   </button>
                   <div className="collapse navbar-collapse justify-content-end m-3" id="navbarNav">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item m-1 me-md-4">
-                                <Link className="nav-link" href="/termos-de-uso"><a className="text-decoration-none" style={{color:"#216651"}}>Termos de Uso</a></Link>
+                                <Link className="nav-link text-decoration-none" href="/termos-de-uso" style={{color:"#216651"}}>Termos de Uso</Link>
                             </li>
                         </ul>
                         <ul className="navbar-nav">
                             <li className="nav-item m-1">
-                                <Link className="nav-link" href="/sobre"><a className="text-decoration-none" style={{color:"#216651"}}>Sobre</a></Link>
+                                <Link className="nav-link text-decoration-none" href="/sobre" style={{color:"#216651"}}>Sobre</Link>
                             </li>
                         </ul>
                     </div>

@@ -86,7 +86,7 @@ export default class Passo1 extends Component {
         <Container>
           <Row>
             <Col>
-              <img src="https://i.imgur.com/Vugdwag.png" className="m-2 mt-5" height="80px" />
+              <Image src="https://i.imgur.com/Vugdwag.png" className="m-2 mt-5" height="80px" />
               <div className="mt-5" style={{ textAlign: "justify", fontSize: "20px", color: "#353D45" }}>
                 <p>Quando eu ou algum ente querido estamos temos o nosso estado de saúde afetado, temos algumas alterações na nossa rotina que dificultam o registro de informações  “organizadas” de sintomas. </p>
 
@@ -94,7 +94,7 @@ export default class Passo1 extends Component {
               </div>
             </Col>
             <Col className="text-center">
-              <img src="https://i.imgur.com/FuT09p7.png" className="m-2 mt-5" height="400px" />
+              <Image src="https://i.imgur.com/FuT09p7.png" className="m-2 mt-5" height="400px" />
             </Col>
           </Row>
           <div className="d-flex justify-content-center">

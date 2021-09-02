@@ -29,10 +29,10 @@ export default class ResetarSenha extends Component {
                                 </div>
                             </div>
                             <div className="text-center mt-3">
-                                <Link href="url "><a className="text-decoration-none" style={{ color: "#216651" }}><b>Lembrei minha senha agora</b></a></Link>
+                                <Link passHref href="/login" className="text-decoration-none" style={{ color: "#216651" }}><b>Lembrei minha senha agora</b></Link>
                             </div>
                             <div className="text-center mt-3">
-                                <Link className="text-danger " href="url "><a className="text-decoration-none" style={{ color: "#216651" }}><b>Ainda não possuo cadastro</b></a></Link>
+                                <Link passHref className="text-danger text-decoration-none" href="/" style={{ color: "#216651" }}><b>Ainda não possuo cadastro</b></Link>
                             </div>
                         </form>
                     </div>
